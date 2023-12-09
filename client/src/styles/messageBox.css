@@ -1,0 +1,45 @@
+.message-box{
+  width: 93%;
+  height: 100%;
+  border-radius: 10rem;
+  background-color: #E7E7E7;
+  border: none;
+  font-size: large;
+  padding-left: 2rem;
+}
+
+.message-box::placeholder{
+  color: black;
+  font-weight: 100;
+}
+
+.message-box-wrapper{
+  width: 87%;
+  height: 6%;
+  position: relative;
+  display: flex;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.send-btn{
+  position: absolute;
+  right: 0;
+  font-size: 1.8rem;
+  color: #878787;
+  background-color: #E7E7E7;
+  height: 95%;
+  width: 13%;
+  border-radius: 25rem;
+  border: none;
+}
+
+.send-btn.filled{
+  color: #1c6df0;
+  animation: 3s ease-in-out;
+}
+
+.send-btn.send-btn.filled:hover{
+  background-color: #c2c2c296;
+  cursor: pointer;
+}
