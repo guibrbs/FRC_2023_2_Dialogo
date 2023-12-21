@@ -18,6 +18,7 @@ async def handle_messages(parsed_message):
 async def handle_connection(parsed_message):
   user_name = parsed_message.get("user")
   CONNECTED_CLIENTS_NAME.append(user_name)
+  print(f"Client: {user_name} connected!")
   await asyncio.gather(*[client.send(json.dumps(parsed_message)) for client in connected_clients])
 
 async def stream_video(websocket, parsed_message):
