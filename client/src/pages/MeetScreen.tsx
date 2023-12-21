@@ -1,13 +1,11 @@
 import { useCallback, useContext, useEffect, useRef } from 'react'
 import { Chat } from '../components/chat'
 import '../styles/meetScreen.css'
-import { CamPreviewContext } from '../contexts/CamPreviewContext';
 import { UserContext } from '../contexts/UserContext';
 import { WebsocketConnectionContext } from '../contexts/WebsocketConnectionContext';
 import Webcam from 'react-webcam';
 
 export function MeetScreen() {
-  const { camState } = useContext(CamPreviewContext);
   const { userName } = useContext(UserContext);
   const { loggedUsers, sendJsonMessage } = useContext(WebsocketConnectionContext);
   const loggedUserName = userName || localStorage.getItem("user")
@@ -90,34 +88,6 @@ export function MeetScreen() {
       console.error('Erro ao acessar o microfone:', err);
     }
   }, [encodePCMtoBase64, loggedUserName, sendJsonMessage]);
-
-  /* const startStreamingAudio = async () => {
-    let stream
-    try {
-      stream = await navigator.mediaDevices.getUserMedia({audio: true});
-    } catch (error) {
-      console.log(error)
-    }
-    
-    const recorder = new MediaRecorder(stream as MediaStream);
-    
-    recorder.ondataavailable = ({ data }) => {
-      var reader = new FileReader();
-      reader.onload = function() {
-        if (reader.result instanceof ArrayBuffer) {
-          console.error('Failed to read data as a string.');
-        } else if (typeof reader.result === 'string') {
-          var base64data = reader.result.split(',')[1]; // Extract base64 string after comma
-          sendJsonMessage({ type: "audio", user: loggedUserName, audio: base64data });
-        } else {
-          console.error('Unexpected type of reader result.');
-        }
-      };
-      reader.readAsDataURL(data);
-    };
-
-    recorder.start(1000);
-  }; */
 
   useEffect(() => {
     if (loggedUsers.includes(loggedUserName as string)){

@@ -25,7 +25,7 @@ async def stream_video(websocket, parsed_message):
 
 async def stream_audio(websocket, parsed_message):
   try:
-    audio_bytes = base64.b64decode(parsed_message["audio"], validate=True)  # Validate padding
+    audio_bytes = base64.b64decode(parsed_message["audio"], validate=True)
 
     audio_buffer = io.BytesIO(audio_bytes)
 
