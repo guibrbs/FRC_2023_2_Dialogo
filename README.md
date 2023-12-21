@@ -49,4 +49,4 @@ yarn start
 O frontend rodará no `localhost:3000`
 
 # Vídeo de apresentação
-TO-DO <link>
+https://youtu.be/7d5NGn7aTao
